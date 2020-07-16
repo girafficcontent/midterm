@@ -1,0 +1,625 @@
+
+/*font-family: 'Lato', sans-serif;
+font-family: 'Roboto', sans-serif;
+font-family: 'Sriracha', cursive;*/
+
+body {
+    background-color: #FFFAFA;
+}
+
+.wrapper {
+    margin: auto;
+    max-width: 560px;
+}
+
+/*dropmenu navigation, spent 4 hours trying to learn how to do a hamburger menu before it worked out*/
+
+nav {
+    width: 100%;
+    background-color: #12243c;
+    position: fixed;
+    font-family: 'Roboto', sans-serif;
+    z-index: 3;
+    margin: 0;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    overflow: hidden;
+    background-color: #12243c;
+}
+
+nav ul li {
+    padding: 10px;
+}
+
+nav .logo {
+    display: block;
+    float: left;
+    font-size: 1.8rem;
+    padding: 15px 10px;
+    text-decoration: none;
+    font-family: 'Sriracha', cursive;
+}
+
+nav .drop {
+    clear: both;
+    max-height: 0;
+    transition: 1s ease-out;
+}
+
+nav .drop {
+    float: left;
+    padding: 0px 10px;
+    position: relative;
+    user-select: none;
+}
+
+nav .menu .arrow {
+    width: 18px;
+    display: block;
+    position: relative;
+}
+
+.arrowdown {
+    width: 0; 
+    height: 0; 
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid white;
+    float: right;
+    margin: 20px;
+}
+
+nav .cart {
+    float: right;
+    margin: 20px;
+}
+
+nav .menu {
+    display: none;
+} 
+
+nav .menu:checked ~ .drop {
+    max-height: 260px;
+}
+
+nav a:link,
+nav a:visited {
+    color: white;
+    text-decoration: none;
+}
+
+/*button animation*/
+nav .menu:checked ~ .arrow .arrowdown {
+    transform: rotate(180deg);
+}
+
+/*Banner*/
+.banner img {
+    margin-top: 15%;
+    width: 100%;
+}
+
+/*headings (fonts and sizing)*/
+h1 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.6rem;
+    font-weight: bold;
+    margin: 3% 2%;
+    padding-top: 10%;
+}
+
+h2 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+}
+
+/*p fonts and sizing*/
+p {
+    font-family: 'Lato', sans-serif;
+    font-size: 0.8rem;
+}
+
+/*SPECIFIC TO INDEX*/
+/*Product box sixing and borders*/
+.window {
+    border: 5px solid lightgrey;
+    border-style: double;
+    padding: 5px 0px;
+    width: 100%;
+}
+
+.window img {
+    width: 100px;
+}
+
+.featured {
+    display: flex;
+    width: 100%;
+}
+
+.featured h2 {
+    font-weight: bold;
+    padding: 4px 0px;
+}
+
+/*making the subscription options more appealing, sizing, colouring and rounded edges*/
+.subbox div {
+    background-color: #213b6d;
+    margin: 2%;
+    color: #FFFAFA;
+    border-radius: 10px;
+    text-align: center;
+    padding: 2%;
+}
+.subbox div h2 {
+    font-size: 1.2rem;
+}
+
+.subbox {
+    margin: 4% 0%;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(2, 60px);
+    grid-template-areas: 
+        "one one two two three three"
+        "four four four four four four"
+    ;
+}
+
+.subbox div:nth-child(1) {
+    grid-area: one;
+    padding-top: 8%;
+}
+
+.subbox div:nth-child(2) {
+    grid-area: two;
+    padding-top: 8%;
+}
+
+.subbox div:nth-child(3) {
+    grid-area: three;
+    padding-top: 8%;
+}
+
+.subbox div:nth-child(4) {
+    grid-area: four;
+    margin: 2% 0%;
+    padding-top: 2%;
+}
+
+footer {
+    text-align: center;
+    font-size: 0.8rem;
+    padding: 20px;
+    margin-top: 12%;
+    font-family: 'Lato', sans-serif;
+    color: #FFFAFA;
+    background-color: #12243c;
+}
+
+/*SPECIFIC TO CATALOG*/
+.container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 2fr);
+}
+
+.container .btn {
+    background-color: #213b6d;
+    border-radius: 5px;
+    height: 40px;
+    text-align: center;
+    margin: 2%;
+}
+
+.container .btn a:link,
+.container .btn a:visited {
+    text-decoration: none;
+    color: #FFFAFA;
+    font-family: 'Lato', sans-serif;
+    margin: 5%;
+}
+
+.container .btn a:hover,
+.container .btn a:active {
+    color: #40BBBC;
+}
+
+/*CATALOG BUTTON ANIMATION*/
+/*Making the button more interactive by decreasing in size before snapping back to normal size on activation*/
+.btn:active {
+    animation-name: click;
+    animation-duration: 1s;
+    animation-delay: 0s;
+    animation-iteration-count: 2;
+}
+@keyframes click {
+    0%, 100% {
+      transform: translate(0);
+    }
+    50% {
+      transform: scale(0.90);
+    }
+}
+
+/*CATALOG > CATEGORY*/
+.catalog:link,
+.catalog:visited {
+    color: black;
+}
+
+.catalog:hover,
+.catalog:active {
+    color: #213b6d;
+}
+
+.tinyproduct img {
+    width: 50%;
+    margin: 10px;
+}
+.tinyproduct {
+    border: 5px double lightgrey;
+    width: 95%;
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+    margin-bottom: 3%;
+}
+
+.tinyproduct .right {
+    height: 100%;
+    width: 40%;
+}
+
+.tinyproduct h3 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: 6%;
+}
+
+.tinyproduct p {
+    font-family: 'Lato', sans-serif;
+    font-size: 0.85rem;
+    margin: 2%;
+}
+
+.tinyproduct button {
+    background-color: #213b6d;
+    color: #FFFAFA;
+    font-family: 'Lato', sans-serif;
+    border-radius: 5px;
+    margin: 1%;
+}
+
+/*CONTACT PAGE*/
+.heart {
+    width: 44%;
+    float: left;
+    margin: 2%;
+}
+
+.contactmain {
+    width: 85%;
+    margin: auto;
+}
+
+.bio p:nth-child(1),
+.bio p:nth-child(2) {
+    display: block;
+    width: 50%;
+    height: auto;
+    float: left;
+}
+
+.bio p {
+    font-size: 0.94rem;
+}
+
+.bio p:nth-child(3) {
+    width: 90%;
+}
+
+.qa {
+    width: 85%;
+    margin: auto;
+    padding-bottom: 20px;
+}
+
+.qa h2 {
+    margin-top: 5%;
+    margin-bottom: 1%;
+    color: #213b6d;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.qa p {
+    font-size: 0.95rem;
+}
+
+/*CONTACT FORM*/
+.form {
+    width: 85%;
+    margin: auto;
+    background-color: #213b6d;
+    padding: 20px 0px;
+    border-radius: 10px;
+}
+
+.form fieldset input[type=text] {
+    font-family: 'Lato', sans-serif;
+    width: 80%;
+    background-color: #FFFAFA;
+    border-radius: 8px;
+    margin: 2% 8%;
+    color: rgb(97, 97, 97);
+}
+
+.form fieldset input[type=checkbox] {
+    margin-left: 10%;
+}
+
+fieldset label {
+    color: #FFFAFA;
+    font-family: 'Lato', sans-serif;
+    font-size: 0.8rem;
+}
+
+.form fieldset input[type=submit] {
+    margin-top: 5%;
+    margin-left: 40%;
+}
+
+/*TABLET ADJUSTMENTS*/
+@media (min-width: 720px) {
+    .wrapper {
+        max-width: 80%;
+        margin: auto;
+    }
+
+    /*Nav clean up*/
+    nav .menu:checked ~ .drop {
+        max-height: 360px;
+    }
+
+    nav .logo {
+        font-size: 2.8rem;
+        padding: 3%;
+    }
+
+    nav ul li {
+        font-size: 1.4rem;
+        margin: 2% 0%;
+    }
+    
+    .arrowdown {
+        border-left: 15px solid transparent;
+        border-right: 15px solid transparent;
+        border-top: 15px solid white;
+        margin: 4%;
+    }
+    
+    nav .cart {
+        margin: 3.5%;
+    }
+    
+    nav i {
+        font-size: 1.6rem;
+    }
+
+    .banner img {
+        margin-top: 5%;
+    }
+
+    /*text resizing, main content*/
+    h1 {
+        font-size: 1.8rem;
+        padding-top: 6%;
+    }
+    
+    h2 {
+        font-size: 1.4rem;
+    }
+    
+    p {
+        font-size: 1.15rem;
+    }
+
+    /*SPECIFIC TO INDEX*/
+    /*Product sixing and borders*/
+    .window {
+        border: 8px solid lightgrey;
+        border-style: double;
+        padding: 5px;
+        margin: 0% 1%;
+    }
+
+    .window img {
+        width: 100%;
+        margin-bottom: 2px;
+    }
+
+    .subbox div:nth-child(4) {
+        margin: 2% 0%;
+        padding: 4% 0;
+    }
+
+    footer {
+        font-size: 1rem;
+        padding: 30px;
+    }
+
+    /*CATALOG SIZE ADJUSTMENT*/
+    .container .btn {
+        font-size: 1.2rem;
+        height: 60px;
+        border-radius: 12px;
+    }
+
+    /*CATALOG 2*/
+    .tinyproduct h3 {
+        font-size: 1.6rem;
+    }
+    
+    .tinyproduct p {
+        font-size: 1.15rem;
+    }
+    
+    .tinyproduct button {
+        width: 20%;
+        font-size: 0.95rem;
+        border-radius: 5px;
+        margin: 1%;
+        padding: 4px;
+    }
+
+    .bio p {
+        font-size: 1.25rem;
+    }
+
+    .qa h2 {
+        font-size: 1.5rem;
+    }
+
+    .qa p {
+        font-size: 1.25rem;
+    }
+
+    /*CONTACT FORM*/
+    .form {
+        width: 90%;
+        height: 250px;
+    }
+
+    .form fieldset input[type=text] {
+        font-size: 1.25rem;
+        padding: 4px 10px;
+    }
+
+    .form fieldset input[type=checkbox] {
+        margin-left: 8.5%;
+        width: 25px;
+    }
+
+    fieldset label {
+        font-size: 1.15rem;
+    }
+
+    .form fieldset input[type=submit] {
+        margin-left: 42%;
+        font-size: 1.15rem;
+    }
+}
+
+/*DESKTOP ADJUSTMENTS*/
+@media (min-width: 1000px) {
+    /*Nav clean up*/
+    nav .logo {
+        font-size: 4rem;
+    }
+
+    nav ul li {
+        font-size: 2.25rem;
+        margin: 4% 0%;
+    }
+    
+    .arrowdown {
+        border-left: 25px solid transparent;
+        border-right: 25px solid transparent;
+        border-top: 25px solid white;
+    }
+    
+    nav .cart {
+        margin: 4%;
+    }
+    
+    nav i {
+        font-size: 2.25rem;
+    }
+
+    .banner img {
+        margin-top: 8%;
+    }
+
+    /*text resizing, main content*/
+    h1 {
+        font-size: 2.25rem;
+    }
+    
+    h2 {
+        font-size: 1.8rem;
+    }
+    
+    p {
+        font-size: 1.6rem;
+    }
+
+    /*SPECIFIC TO INDEX*/
+    /*Product sixing and borders*/
+    .window {
+        border: 10px solid lightgrey;
+        border-style: double;
+        padding: 10px;
+    }
+
+    .window img {
+        margin-bottom: 4px;
+    }
+
+    .subbox div h2 {
+        font-size: 2rem;
+        padding: 20px;
+    }
+
+    .subbox div:nth-child(1),
+    .subbox div:nth-child(2),
+    .subbox div:nth-child(3) {
+        padding: 0;
+        padding-bottom: 60px;
+    }
+
+    .subbox div:nth-child(4) {
+        padding-top: 0%;
+        padding-bottom: 80px;
+    }
+
+    footer {
+        font-size: 1.25rem;
+        padding: 50px;
+    }
+
+    /*CATALOG SIZE ADJUSTMENT*/
+
+    .container {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 2fr);
+    }
+    
+    .container .btn {
+        font-size: 1.5rem;
+        height: 80px;
+        border-radius: 12px;
+    }
+
+    /*CATALOG 2*/
+    .tinyproduct h3 {
+        font-size: 2.25rem;
+    }
+    
+    .tinyproduct p {
+        font-size: 1.15rem;
+    }
+    
+    .tinyproduct button {
+        width: 20%;
+        font-size: 0.95rem;
+        border-radius: 5px;
+        margin: 1%;
+        padding: 4px;
+    }
+}
